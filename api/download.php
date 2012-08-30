@@ -70,4 +70,3 @@ if(!empty($_GET['key'])){
   echo "No download key was provided. Please return to the previous page and try again.";
 }
 
-?>

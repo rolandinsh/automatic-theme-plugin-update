@@ -6,7 +6,7 @@
 // NOTE: All variables and functions will need to be prefixed properly to allow multiple plugins to be updated
 
 /******************Change this*******************/
-$api_url = 'http://localhost/api/';
+$api_url = 'http://atbalsts.mediabox.lv/api/';
 /************************************************/
 
 /*******************Child Theme******************
@@ -52,7 +52,8 @@ function check_for_update($checked_data) {
 		'body' => array(
 			'action' => 'theme_update', 
 			'request' => serialize($request),
-			'api-key' => md5(get_bloginfo('url'))
+			'api-key' => md5(get_bloginfo('url')),
+			'sitehash' => md5(get_bloginfo('url'))
 		),
 		'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo('url')
 	);
@@ -96,4 +97,3 @@ function my_theme_api_call($def, $action, $args) {
 
 if (is_admin())
 	$current = get_transient('update_themes');
-?>
